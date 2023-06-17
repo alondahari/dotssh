@@ -1,0 +1,21 @@
+Include ~/.orbstack/ssh/config
+
+Host bastion.faninc-dev.com
+  UseKeychain yes
+  AddKeystoAgent yes
+  User ec2-user
+  HostName 34.221.106.48
+  IdentityFile ~/.ssh/faninc-bastion-host-dev.pem
+  LocalForward 3336 fanincdev-cluster.cluster-coji7vymbwqt.us-west-2.rds.amazonaws.com:5432
+
+Host bastion.faninc.com
+  UseKeychain yes
+  AddKeystoAgent yes
+  User ec2-user
+  HostName 54.149.43.52
+  IdentityFile ~/.ssh/faninc-bastion-host-prod.pem
+
+Host *.github.com
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_github
